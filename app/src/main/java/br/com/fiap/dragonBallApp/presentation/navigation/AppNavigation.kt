@@ -1,5 +1,7 @@
 package br.com.fiap.dragonBallApp.presentation.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresExtension
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
@@ -10,6 +12,7 @@ import androidx.navigation.navArgument
 import br.com.fiap.dragonBallApp.presentation.character.detail.CharacterDetailScreen
 import br.com.fiap.dragonBallApp.presentation.character.list.CharacterListScreen
 
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 13)
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -19,7 +22,7 @@ fun AppNavigation() {
         startDestination = AppRoutes.CHARACTER_LIST
     ) {
         composable(AppRoutes.CHARACTER_LIST) {
-            CharacterListScreen()
+            CharacterListScreen(onCharacterClick = { navController.navigate(AppRoutes.CHARACTER_DETAIL)})
         }
 
         composable(
