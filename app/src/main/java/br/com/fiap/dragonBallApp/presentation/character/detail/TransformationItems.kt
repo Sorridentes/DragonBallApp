@@ -20,8 +20,7 @@ fun TransformationItems(transformations: List<Transformation> = listOf()) {
         verticalArrangement = Arrangement.Center
     ) {
         LazyRow(
-            contentPadding = PaddingValues(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(transformations) { transformation ->
                 TransformationCard(transformation)

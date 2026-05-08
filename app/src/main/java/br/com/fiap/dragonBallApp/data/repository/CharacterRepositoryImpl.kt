@@ -21,7 +21,7 @@ class CharacterRepositoryImpl (
             val characterFull = CharacterFull(responseDetail.toDomain(), responseTransformation)
             Resource.Success(characterFull)
         } catch (exception: Exception){
-            Resource.Error("Não foi possível buscar o personagem")
+            Resource.Error("Não foi possível buscar o personagem de id $number")
         }
     }
 

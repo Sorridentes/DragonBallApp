@@ -22,7 +22,11 @@ fun AppNavigation() {
         startDestination = AppRoutes.CHARACTER_LIST
     ) {
         composable(AppRoutes.CHARACTER_LIST) {
-            CharacterListScreen(onCharacterClick = { navController.navigate(AppRoutes.CHARACTER_DETAIL)})
+            CharacterListScreen(onCharacterClick = { characterNumber ->
+                navController.navigate(
+                    AppRoutes.characterDetail(characterNumber)
+                )
+            })
         }
 
         composable(

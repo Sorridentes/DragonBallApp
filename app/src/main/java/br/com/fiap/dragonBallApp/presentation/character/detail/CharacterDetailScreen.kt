@@ -83,44 +83,39 @@ fun CharacterDetailScreen(
                 is UiState.Success -> {
                     val character = state.data
 
-                    Card(
+                    Column(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .fillMaxHeight()
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
                     ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center
-                        ) {
-                            AsyncImage(
-                                model = character.detail.image,
-                                contentDescription = character.detail.name,
-                                modifier = Modifier.size(160.dp),
-                                contentScale = ContentScale.Fit
-                            )
-                            Spacer(modifier = Modifier.height(16.dp))
+                        AsyncImage(
+                            model = character.detail.image,
+                            contentDescription = character.detail.name,
+                            modifier = Modifier.size(160.dp),
+                            contentScale = ContentScale.Fit
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                            Text(
-                                text = character.detail.name,
-                                style = MaterialTheme.typography.headlineMedium,
-                            )
+                        Text(
+                            text = character.detail.name,
+                            style = MaterialTheme.typography.headlineMedium,
+                        )
 
-                            Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
 
-                            Text("Número: ${character.detail.id}")
+                        Text("Número: ${character.detail.id}")
 
-                            Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
 
-                            Text(character.detail.description)
+                        Text(character.detail.description)
 
-                            Spacer(modifier = Modifier.height(25.dp))
+                        Spacer(modifier = Modifier.height(25.dp))
 
-                            TransformationItems(character.transformations)
-                        }
+                        TransformationItems(character.transformations)
                     }
+
                 }
             }
         }
